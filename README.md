@@ -3,9 +3,23 @@ syncable-service-poc
 
 Proof of concept of the Syncable Service API for Firefox client data
 
-Running and testing this Jetpack add-on requires the [Jetpack SDK](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/). Installation instructions are [here](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html). Testing and running the add-on depends heavily on [cfx](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/cfx-tool.html), a command line tool included with the SDK.
+### __[View Screencast Demo](http://screencast.com/t/u8JsUt8C758c)__
 
-By default, the add-on runs against and is tested against the "standup" dev servers. To run it against locally running servers, set `LOCAL_SERVERS=true` in `lib/config.js`. When `LOCAL_SERVERS=true`, the add-on assumes the key server is running at `127.0.0.1:8090` and the storage server is running at `127.0.0.1:8080`.
+Running and testing this Jetpack add-on requires the [Jetpack SDK](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/).
+Installation instructions are [here](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html).
+Testing and running the add-on depends heavily on [cfx](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/cfx-tool.html),
+a command line tool included with the SDK.
+
+By default, the add-on runs against a local CouchDB server, you can change this in `lib/config.js`
+
+
+Setup
+-------
+
+* Update the username in `lib/config.js`, and change `const DB_USER = 'testuser';` to your username.
+* Download the latest release of `pouchdb-nightly.js` from https://github.com/vladikoff/pouchdb/releases
+and put in `lib/pouchdb/dist/`.
+* Make sure the CouchDB server is running, default remote is `http://localhost:5984/content_history`
 
 Running
 -------
@@ -25,6 +39,7 @@ To run with a different build of Firefox:
     cfx run -b /path/to/binary
 
 More cfx run options are [here](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/cfx-tool.html).
+
 
 Testing
 -------

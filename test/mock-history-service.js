@@ -49,7 +49,6 @@ var HistoryService = {
   updateItems: function(historyItems) {
     let self = this;
     historyItems.forEach(function (item) {
-      //L.log("updating items", item);
       self.historyItems[item.id] = item;
       if (self.observer) self.observer.onVisit(ios.newURI(item.histUri, null, null));
     });
